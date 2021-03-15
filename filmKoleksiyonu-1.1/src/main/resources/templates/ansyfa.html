@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+    <title>Film Koleksiyon</title>
+  </head>
+  <body>
+
+        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+                <a class="navbar-brand" th:href="@{/anasayfa}">ANASAYFA</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" th:href ="@{/filmekle}" >Film Ekle <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+    
+    <div class="container" >
+
+
+        <div class="row">
+
+
+
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">film adı</th>
+                    <th scope="col"><a class="btn btn-dark" th:href ="@{/sirala}" >Film Yılı</a></th>
+                     <th scope="col">açıklaması</th>
+                      <th scope="col">film türü</th>
+                       <th scope="col">oyuncular</th>
+                                              <th scope="col">oyuncu ekle</th>
+                       
+                         <th scope="col">Trailer</th>
+                         
+                    <th scope="col">sil</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="film,iter:${filmler}">
+                    <th scope="row" th:text="${iter.index}+1" ></th>
+                    <td th:text="${film.name}"></td>
+                    <td th:text="${film.year}"></td>
+                    <td th:text="${film.content}"></td>
+                   <td th:text="${film.tur.filminturu}"></td>    
+                    <td><a class="btn btn-info" th:href ="@{/oyunculari(filmid=${film.id})}" >oyuncularagit</a></td>
+                                        <td><a class="button btn btn-primary" th:href ="@{/oyuncuekle(filmid=${film.id})}" >oyuncu ekle</a></td>
+                                        <td> <a class="btn btn-dark" th:href ="@{${film.media}}" >Git</a></td>
+                    
+                    
+                  <td> <a class="btn btn-danger" th:href ="@{/filmsil(id=${film.id})}" >sil</a></td>
+                   <td> <a class="btn btn-danger" th:href ="@{/filmdüzenle(id=${film.id})}" >düzenle</a></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+               <form action="/arama" method="" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Film Adı Ya da Oyuncu Adına Göre Ara" name="arama" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Arama</button>
+      </form>
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+  </body>
+</html>

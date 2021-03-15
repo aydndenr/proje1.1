@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-image: url(https://images.vexels.com/media/users/3/73521/raw/2835c5572cde52552154dd331b7175cd-30-famous-film-characters.jpg); background-repeat: repeat;">
+
+    <div class="container" style="width:980px; height: auto; background-color: beige;padding: 0">
+
+
+        <div style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPS8MZBfWhwXE7pFMHXAEvVxWz6oslVnoxyA&usqp=CAU); height:125px;width: 100%;" ></div>
+            
+
+        <div class="row" style="    margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;">
+<h3>OYUNCU EKLE</h3>
+<div class="container">
+   <form th:action="@{/oyuncuekle}" th:object="${oyuncu}" method="post">
+   <div class="form-group" style="margin-top:50px">
+    <label for="exampleInputEmail1"><b>Adı</b></label>
+    <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Oyuncu Adı" th:field="*{name}" />
+  </div>
+     <div class="form-group">
+    <label for="exampleInputEmail1"><b>Soyadı</b></label>
+    <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Oyuncu Soyadı" th:field="*{surname}" />
+
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1"><b>Mevkisi</b></label>
+    <input type="text"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Rolü" th:field="*{content}" />
+
+  </div>
+  
+   <div class="form-group">
+  
+    <button type="submit">Oyuncuyu Ekle</button>
+  </div>
+  </form>
+  
+  </div>
+
+            </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: goldenrod">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+
+     </div>
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    </div>
+
+
+
+
+
+
+    
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
+
+
+
